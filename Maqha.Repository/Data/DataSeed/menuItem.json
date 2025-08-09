@@ -1,0 +1,11 @@
+[
+  {
+    "Name": "شاي",
+    "Description": "شاي سخن علي مزاجك",
+    "Price": 5.5,
+    "Image": "images/classic-burger.jpg",
+    "IsAvailable": true,
+    "CategoryId": 1
+  }
+]
+ 
