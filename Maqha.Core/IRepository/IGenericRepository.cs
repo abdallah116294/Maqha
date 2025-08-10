@@ -17,6 +17,7 @@ namespace Maqha.Core.IRepository
         //Get Record By Id
         Task<T>GetByIdAsync(int id);
         Task<T> GetByIdAsync(int id, params Expression<Func<T, object>>[] includes);
+        Task<T> GetByIdWithNestedIncludesAsync(int id, Func<IQueryable<T>, IQueryable<T>> includeFunc);
         //Add Record
         Task AddAsync(T entity);
         //Update Record

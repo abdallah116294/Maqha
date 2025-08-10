@@ -70,7 +70,15 @@ namespace Maqha.Repository.Repository
             }
             return await query.FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == id);
         }
-
+        public async Task<T> GetByIdWithNestedIncludesAsync(int id, Func<IQueryable<T>, IQueryable<T>> includeFunc)
+        {
+            IQueryable<T> query = _context.Set<T>();
+            if (includeFunc != null)
+            {
+                query = includeFunc(query);
+            }
+            return await query.FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == id);
+        }
         public async Task UpdateAsync(T entity)
         {
           _context.Set<T>().Update(entity);

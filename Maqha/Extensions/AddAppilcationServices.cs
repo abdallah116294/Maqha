@@ -14,6 +14,7 @@ namespace Maqha.Extensions
             serviceCollection.AddScoped<IUserService, UserService>();
             serviceCollection.AddScoped<IRoleService, RoleService>();
             serviceCollection.AddScoped<IAuthService, AuthService>();
+            serviceCollection.AddScoped<IOrderService, OrderService>();
             serviceCollection.AddScoped<IImageUploadService, ImageUploadService>();
             serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
             serviceCollection.AddAutoMapper(typeof(MappingProfile));
