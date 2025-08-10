@@ -58,7 +58,7 @@ namespace Maqha.Repository.Repository
             return result!;
         }
 
-        public async Task<T> GetByIdAsync(int id, params Expression<Func<T, object>>[] includes)
+        public async Task<T> GetByIdAsync(int id,  params Expression<Func<T, object>>[] includes)
         {
             IQueryable<T> query = _context.Set<T>();
             if (includes != null)
@@ -68,7 +68,6 @@ namespace Maqha.Repository.Repository
                     query = query.Include(include);
                 }
             }
-
             return await query.FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == id);
         }
 

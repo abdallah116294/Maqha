@@ -30,6 +30,8 @@ namespace Maqha.Repository.Data
         //Order Dbset
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        //Table DbSet
+        public DbSet<Table> Tables { get; set; }
         //on model creating method to set the table name and schema
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

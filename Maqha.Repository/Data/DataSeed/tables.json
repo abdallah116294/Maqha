@@ -1,0 +1,22 @@
+[
+  {
+    "TableNumber": 1,
+    "Capactiy": 4,
+    "IsActive": true
+  },
+  {
+    "TableNumber": 2,
+    "Capactiy": 6,
+    "IsActive": true
+  },
+  {
+    "TableNumber": 3,
+    "Capactiy": 8,
+    "IsActive": false
+  },
+  {
+    "TableNumber": 4,
+    "Capactiy": 10,
+    "IsActive": true
+    }
+]

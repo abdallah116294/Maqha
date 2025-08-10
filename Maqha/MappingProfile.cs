@@ -22,6 +22,8 @@ namespace Maqha
             CreateMap<MenuItem,CategoriesMenuItemDTO>().ReverseMap();
             //OrderItem mappings
             CreateMap<OrderItem, CreateOrderItemDTO>().ReverseMap();
+            //Table mappings 
+            CreateMap<Table, CreateTableDTO>().ReverseMap();
             // Add your mapping configurations here
             // For example:
             // CreateMap<SourceEntity, DestinationDto>();

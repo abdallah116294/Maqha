@@ -18,6 +18,8 @@ namespace Maqha.Repository.Data
                 await SeedCafeInfo(context);
                 //Seed MenuItem 
                 await SeedMenuItme(context);
+                //seed Tables Data 
+                await SeedTables(context);
 
             }
            
@@ -99,6 +101,42 @@ namespace Maqha.Repository.Data
             catch (FileNotFoundException)
             {
                 Console.WriteLine("MenuItem.json file not found. Please check the file path.");
+            }
+            catch (JsonException ex)
+            {
+                Console.WriteLine($"Error deserializing JSON: {ex.Message}");
+            }
+        }
+        public static async Task SeedTables(MaqhaDbContext context)
+        {
+            try
+            {
+                //Seed MenuItme
+                if (!context.Tables.Any())
+                {
+                    //Read JSON File 
+                    var tablesFile = await File.ReadAllTextAsync("../Maqha.Repository/Data/DataSeed/tables.json");
+                    // Deserialize the JSON data
+                    var tables = JsonSerializer.Deserialize<IEnumerable<Table>>(tablesFile);
+                    if (tables != null && tables.Any())
+                    {
+                        // Add the data to the context
+                        await context.Tables.AddRangeAsync(tables);
+
+                        // Save changes to the database
+                        await context.SaveChangesAsync();
+
+                        Console.WriteLine($"Successfully seeded {tables.Count()} Tables records.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No Tables data found in JSON file.");
+                    }
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("Tables.json file not found. Please check the file path.");
             }
             catch (JsonException ex)
             {

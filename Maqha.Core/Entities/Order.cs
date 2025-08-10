@@ -8,6 +8,8 @@ namespace Maqha.Core.Entities
 {
     public class Order:BaseEntity
     {
+        //Property for Table ID
+        public int TableId { get; set; }
         //Property for Total price of the order
         public decimal TotalPrice { get; set; }
         //Property for Order Status
